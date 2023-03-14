@@ -21,8 +21,8 @@ export default function AccountModal(props: {
 }) {
   const [spinnerState, setSpinnerState] = useState<boolean>(false);
   const [requestError, setRequestError] = useState<string>("");
-  const passwordField = useRef<HTMLInputElement>(null);
-  const emailField = useRef<HTMLInputElement>(null);
+  const passwordField = useRef<any>(null);
+  const emailField = useRef<any>(null);
 
   const passwordVisibilitySwitch = () => {
     const passwordInput = passwordField.current;
@@ -118,7 +118,7 @@ export default function AccountModal(props: {
         <Form onSubmit={loginRequest}>
           <FormGroup>
             <Label for="login-email">Email</Label>
-            <input
+            <Input
               ref={emailField}
               style={{ backgroundColor: "#DCD7C9", borderColor: "#3F4E4F" }}
               type="text"
@@ -129,7 +129,7 @@ export default function AccountModal(props: {
           </FormGroup>
           <FormGroup>
             <Label for="login-password">Password</Label>
-            <input
+            <Input
               ref={passwordField}
               type="password"
               id="passwordField"

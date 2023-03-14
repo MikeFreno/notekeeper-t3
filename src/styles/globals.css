@@ -940,3 +940,21 @@ body.is-preload #bg:before {
     height: 55vh;
   }
 }
+.carousel-container {
+  min-width: 90%;
+}
+
+@media (min-width: 768px) {
+  .carousel-container {
+    min-width: 50%;
+  }
+}
+.carousel-img {
+  max-width: 100%;
+}
+.copyright-index {
+  color: #a27b5c;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
