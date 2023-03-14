@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { LegacyRef, useRef, useState } from "react";
 import axios from "axios";
 import {
   Button,
@@ -25,13 +25,19 @@ export default function AccountModal(props: {
   const emailField = useRef<any>(null);
 
   const passwordVisibilitySwitch = () => {
+    // eslint-disable-next-line
     const passwordInput = passwordField.current;
     if (passwordInput) {
+      // eslint-disable-next-line
       if (passwordInput.type === "password") {
+        // eslint-disable-next-line
         passwordInput.setAttribute("type", "text");
+        // eslint-disable-next-line
         passwordInput.setAttribute("class", "fa fa-eye fa-lg eye-overlay");
       } else {
+        // eslint-disable-next-line
         passwordInput.setAttribute("type", "password");
+        // eslint-disable-next-line
         passwordInput.setAttribute(
           "class",
           "fa fa-eye-slash fa-lg eye-overlay"
