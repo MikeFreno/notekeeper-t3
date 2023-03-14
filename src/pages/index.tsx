@@ -147,7 +147,7 @@ export default function Home() {
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img
-                  src="{% static 'Make Task.png' %}"
+                  src="/Make Task.png"
                   className="d-block carousel-img mx-auto"
                   alt="making tasks"
                 />
@@ -158,7 +158,7 @@ export default function Home() {
               </div>
               <div className="carousel-item">
                 <img
-                  src="/Make Reminder.png'"
+                  src="/Make Reminder.png"
                   className="d-block carousel-img mx-auto"
                   alt="making reminders"
                 />
@@ -169,7 +169,7 @@ export default function Home() {
               </div>
               <div className="carousel-item">
                 <img
-                  src="/'Showing Tasks.png'"
+                  src="/Showing Tasks.png"
                   className="d-block carousel-img mx-auto"
                   alt="showing tasks"
                 />
