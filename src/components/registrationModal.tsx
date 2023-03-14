@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import Timezone from "./timezone";
 
-export default function registrationModal(props: {
+export default function RegistrationModal(props: {
   logInToggle: () => void;
   toggle: () => void;
 }) {
@@ -42,28 +42,12 @@ export default function registrationModal(props: {
   const passwordConfField = useRef<HTMLInputElement>(null);
   const emailField = useRef<HTMLInputElement>(null);
 
-  const getCookie = (name: string) => {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-      var cookies = document.cookie.split(";");
-      for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i]?.toString().replace(/^([\s]*)|([\s]*)$/g, "");
-        if (cookie?.substring(0, name.length + 1) === name + "=") {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  };
   const registrationRequest = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     spinnerSetter();
     const userEmail = emailField.current?.value.toLowerCase();
     const userPassword = passwordField.current?.value;
     const timezone_Shift = $("#timezone-select").val();
-
-
   };
   const registrationButtonSetter = () => {
     if (registerSpinner) {
@@ -158,8 +142,8 @@ export default function registrationModal(props: {
     setTimezoneSet(!timezoneSet);
   };
   const checkEmailInput = () => {
-    var currentInput = emailField.current?.value;
-    var re = /\S+@\S+\.\S+/;
+    const currentInput = emailField.current?.value;
+    const re = /\S+@\S+\.\S+/;
     if (currentInput) {
       if (currentInput.length <= 3) {
         setEmailPassed("");
@@ -178,8 +162,8 @@ export default function registrationModal(props: {
   };
   const checkPasswordInput = () => {
     checkEmailInput();
-    var currentInput = passwordField.current?.value;
-    var passwordConf = passwordConfField.current?.value;
+    const currentInput = passwordField.current?.value;
+    const passwordConf = passwordConfField.current?.value;
     if (currentInput) {
       if (currentInput.length < 8) {
         setPasswordPassed("");
@@ -210,27 +194,27 @@ export default function registrationModal(props: {
   };
   const checkPasswordConfInput = () => {
     checkPasswordInput();
-    var currentInput = passwordConfField.current?.value;
-    var passwordToMatch = passwordField.current?.value;
+    const currentInput = passwordConfField.current?.value;
+    const passwordToMatch = passwordField.current?.value;
     if (currentInput && passwordToMatch) {
       if (currentInput.length < passwordToMatch.length) {
-        ({ passwordConfPassed: "" });
-        ({ passwordConfError: "Passwords must match" });
-        ({ passwordConfBorderColor: "red" });
+        setPasswordConfPassed("");
+        setPasswordConfError("Passwords must match");
+        setPasswordConfBorderColor("red");
       } else if (currentInput !== passwordToMatch) {
-        ({ passwordPassed: "" });
-        ({ passwordError: "Passwords must match" });
-        ({ passwordBorderColor: "red" });
-        ({ passwordConfPassed: "" });
-        ({ passwordConfError: "Passwords must match" });
-        ({ passwordConfBorderColor: "red" });
+        setPasswordPassed("");
+        setPasswordError("Passwords must match");
+        setPasswordBorderColor("red");
+        setPasswordConfPassed("");
+        setPasswordConfError("Passwords must match");
+        setPasswordConfBorderColor("red");
       } else if (currentInput.length > 8 && currentInput === passwordToMatch) {
-        ({ passwordError: "" });
-        ({ passwordPassed: "Looks good!" });
-        ({ passwordBorderColor: "green" });
-        ({ passwordConfError: "" });
-        ({ passwordConfPassed: "Looks good!" });
-        ({ passwordConfBorderColor: "green" });
+        setPasswordError("");
+        setPasswordPassed("Looks good!");
+        setPasswordBorderColor("green");
+        setPasswordConfError("");
+        setPasswordConfPassed("Looks good!");
+        setPasswordConfBorderColor("green");
       }
     }
   };

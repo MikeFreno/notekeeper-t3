@@ -1,6 +1,6 @@
 import { Input } from "reactstrap";
 
-const timezone = (props: { setTimezone: any }) => {
+const timezone = (props: { setTimezone: () => void }) => {
   return (
     <div>
       <Input
@@ -71,7 +71,7 @@ const timezone = (props: { setTimezone: any }) => {
         </option>
         <option value={"13"}>(GMT+13:00) Fiji Islands (FJT)</option>
         <option value={"13"}>(GMT+13:00) Auckland, Wellington (NZDT)</option>
-        <option value={"14"}>(GMT+14:00) Nuku'alofa</option>
+        <option value={"14"}>(GMT+14:00) Nuku&apos;alofa</option>
       </Input>
     </div>
   );

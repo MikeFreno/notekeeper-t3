@@ -14,8 +14,8 @@ import {
 import $ from "jquery";
 
 export default function PasswordResetModal(props: {
-  loginToggle: any;
-  toggle: any;
+  loginToggle: () => void;
+  toggle: () => void;
 }) {
   const [passwordResetRequestError, setPasswordResetRequestError] =
     useState<string>("");
@@ -24,39 +24,24 @@ export default function PasswordResetModal(props: {
   const [submitButtonSpinner, setSubmitButtonSpinner] =
     useState<boolean>(false);
 
-  const getCookie = (name: string) => {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-      var cookies = document.cookie.split(";");
-      for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i]?.toString().replace(/^([\s]*)|([\s]*)$/g, "");
-        if (cookie?.substring(0, name.length + 1) === name + "=") {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  };
   const passwordResetRequest = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     submitButtonSpinnerToggle();
-    const cookie = getCookie("csrftoken");
     const userEmail = $("#emailField").val();
-    axios({
-      method: "POST",
-      url: "/api/auth/password/reset/",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "X-CSRFToken": cookie,
-      },
-      data: {
-        email: userEmail,
-      },
-    }).then((response) => {
-      console.log(response);
-    });
+    // axios({
+    //   method: "POST",
+    //   url: "/api/auth/password/reset/",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //     "X-CSRFToken": cookie,
+    //   },
+    //   data: {
+    //     email: userEmail,
+    //   },
+    // }).then((response) => {
+    //   console.log(response);
+    // });
   };
   const submitButtonSpinnerToggle = () => {
     setSubmitButtonSpinner(!submitButtonSpinner);

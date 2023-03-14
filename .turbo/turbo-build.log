@@ -1,0 +1,148 @@
+
+> notekeeper-t3@0.1.0 build
+> next build
+
+info  - Loaded env from /Users/mike/VS Code/notekeeper-t3/.env
+info  - Linting and checking validity of types...
+
+./src/components/LoginModal.tsx
+2:8  Warning: 'axios' is defined but never used.  @typescript-eslint/no-unused-vars
+11:3  Warning: 'Input' is defined but never used.  @typescript-eslint/no-unused-vars
+23:24  Warning: 'setRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Reminder-Modal.tsx
+1:17  Warning: 'Component' is defined but never used.  @typescript-eslint/no-unused-vars
+10:3  Warning: 'Input' is defined but never used.  @typescript-eslint/no-unused-vars
+17:8  Warning: 'axios' is defined but never used.  @typescript-eslint/no-unused-vars
+20:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+29:24  Warning: 'setRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+31:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+32:26  Warning: 'setActiveReminder' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+33:9  Warning: 'descriptionRef' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+35:37  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+41:9  Warning: 'inputPlaceholderSetter' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Task-Modal.tsx
+1:17  Warning: 'Component' is defined but never used.  @typescript-eslint/no-unused-vars
+10:3  Warning: 'Input' is defined but never used.  @typescript-eslint/no-unused-vars
+14:8  Warning: 'axios' is defined but never used.  @typescript-eslint/no-unused-vars
+15:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+22:22  Warning: 'setActiveTask' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+24:24  Warning: 'setRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/passwordReset.tsx
+1:17  Warning: 'Component' is defined but never used.  @typescript-eslint/no-unused-vars
+2:8  Warning: 'axios' is defined but never used.  @typescript-eslint/no-unused-vars
+20:37  Warning: 'setPasswordResetRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+22:39  Warning: 'setPasswordResetRequestSuccess' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+30:11  Warning: 'userEmail' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/registrationModal.tsx
+2:8  Warning: 'axios' is defined but never used.  @typescript-eslint/no-unused-vars
+22:10  Warning: 'showLogin' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+22:21  Warning: 'setShowLogin' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+34:30  Warning: 'setPasswordConfHolder' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+36:24  Warning: 'setTimezoneConf' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:24  Warning: 'setRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+48:11  Warning: 'userEmail' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+49:11  Warning: 'userPassword' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+50:11  Warning: 'timezone_Shift' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+172:18  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+
+./src/components/userSettings.tsx
+1:17  Warning: 'Component' is defined but never used.  @typescript-eslint/no-unused-vars
+2:8  Warning: 'axios' is defined but never used.  @typescript-eslint/no-unused-vars
+19:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+35:34  Warning: 'setPasswordChangeResponse' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+37:29  Warning: 'setLogoutButtonState' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+38:10  Warning: 'logoutSpinner' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+38:25  Warning: 'setLogoutSpinner' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:30  Warning: 'setLogoutRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+42:32  Warning: 'setTimezoneRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+43:10  Warning: 'timezoneSuccessError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+43:32  Warning: 'setTimezoneSuccessError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+44:34  Warning: 'setReminderRequestSuccess' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+46:32  Warning: 'setReminderRequestError' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+52:22  Warning: 'setAdsSpinner' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+53:27  Warning: 'setChangesDetected' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+54:33  Warning: 'setTimezoneSuccessReport' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+56:31  Warning: 'setReceiveDesktopCheck' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+61:24  Warning: 'toggle' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+63:9  Warning: 'triggerFooterVisibility' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+199:11  Warning: 'newUserPassword' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+200:11  Warning: 'newUserPasswordConf' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+205:9  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+209:16  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+209:40  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+235:9  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+235:32  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+246:16  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+
+./src/pages/index.tsx
+1:17  Warning: 'Component' is defined but never used.  @typescript-eslint/no-unused-vars
+4:8  Warning: 'axios' is defined but never used.  @typescript-eslint/no-unused-vars
+19:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+21:22  Warning: 'signOut' is defined but never used.  @typescript-eslint/no-unused-vars
+25:6  Warning: 'FullUserData' is defined but never used.  @typescript-eslint/no-unused-vars
+37:10  Warning: 'taskModal' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+37:21  Warning: 'setTaskModal' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:10  Warning: 'userModals' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:22  Warning: 'setUserModals' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+41:10  Warning: 'userKey' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+41:19  Warning: 'setUserKey' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+43:10  Warning: 'userID' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+43:18  Warning: 'setUserID' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+52:10  Warning: 'refreshButtonState' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+52:30  Warning: 'setRefreshButtonState' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+59:17  Warning: 'session' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+63:22  Warning: Forbidden non-null assertion.  @typescript-eslint/no-non-null-assertion
+125:29  Warning: 'task' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+128:33  Warning: 'reminder' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+313:17  Warning: 'stringed' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+335:17  Warning: 'stringed' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+361:15  Warning: 'stringed' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+384:15  Warning: 'stringed' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+532:9  Warning: 'successReporter' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/server/api/routers/reminder.ts
+1:10  Warning: 'z' is defined but never used.  @typescript-eslint/no-unused-vars
+2:28  Warning: 'protectedProcedure' is defined but never used.  @typescript-eslint/no-unused-vars
+2:48  Warning: 'publicProcedure' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/server/api/routers/task.ts
+1:10  Warning: 'z' is defined but never used.  @typescript-eslint/no-unused-vars
+2:28  Warning: 'protectedProcedure' is defined but never used.  @typescript-eslint/no-unused-vars
+2:48  Warning: 'publicProcedure' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/server/api/routers/user.ts
+1:10  Warning: 'z' is defined but never used.  @typescript-eslint/no-unused-vars
+2:28  Warning: 'protectedProcedure' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+info  - Creating an optimized production build...
+info  - Compiled successfully
+info  - Collecting page data...
+info  - Generating static pages (0/6)
+info  - Generating static pages (1/6)
+info  - Generating static pages (2/6)
+info  - Generating static pages (4/6)
+info  - Generating static pages (6/6)
+info  - Finalizing page optimization...
+
+Route (pages)                              Size     First Load JS
+┌ ○ / (338 ms)                             102 kB          227 kB
+├   └ css/6f8ca1c514884371.css             908 B
+├   /_app                                  0 B             125 kB
+├ ○ /404                                   182 B           125 kB
+├ λ /api/auth/[...nextauth]                0 B             125 kB
+└ λ /api/trpc/[trpc]                       0 B             125 kB
++ First Load JS shared by all              157 kB
+  ├ chunks/framework-2c79e2a64abdb08b.js   45.2 kB
+  ├ chunks/main-b0dd2b8647b58df3.js        27.7 kB
+  ├ chunks/pages/_app-f2b77939f22089f1.js  51.5 kB
+  ├ chunks/webpack-18e1e020f3fa96ee.js     867 B
+  └ css/e571c19866fad2d2.css               31.2 kB
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+

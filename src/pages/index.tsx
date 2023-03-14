@@ -99,20 +99,6 @@ export default function App() {
     }
   }, [currentUser]);
 
-  const getCookie = (name: string) => {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-      var cookies = document.cookie.split(";");
-      for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i]?.toString().replace(/^([\s]*)|([\s]*)$/g, "");
-        if (cookie?.substring(0, name.length + 1) === name + "=") {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  };
   const toggle = () => {
     setModal(!modal);
   };
@@ -136,7 +122,9 @@ export default function App() {
     setPasswordResetModal(!passwordResetModal);
     setLoginModal(false);
   };
-  const handleTaskDelete = (task: Task) => {};
+  const handleTaskDelete = (task: Task) => {
+    return "";
+  };
   const handleReminderDelete = (reminder: Reminder) => {
     // }).then((res) => {
     //   const updatedArray = userMappedReminders.filter(
@@ -162,9 +150,9 @@ export default function App() {
     //     });
     // });
   };
-  const createTaskItem = () => {};
+  // const createTaskItem = () => {};
 
-  const createReminderItem = () => {};
+  // const createReminderItem = () => {};
 
   const editTaskItem = (task: Task) => {
     setActiveTask(task);
@@ -212,7 +200,7 @@ export default function App() {
           <Button
             className="btn btn-primary add-button hvr-shadow"
             id="add_button"
-            onClick={createTaskItem}
+            // onClick={createTaskItem}
           >
             Add Task
           </Button>
@@ -239,7 +227,7 @@ export default function App() {
           <Button
             className="btn btn-primary add-button-reminder hvr-shadow"
             id="add_button"
-            onClick={createReminderItem}
+            // onClick={createReminderItem}
           >
             Add Reminder
           </Button>
@@ -318,7 +306,7 @@ export default function App() {
         const index = userTaskOrder?.indexOf(item);
         // If the item is not the first item, move it up in the array
         if (index && index > 0) {
-          let newOrder = [...userTaskOrder];
+          const newOrder = [...userTaskOrder];
           newOrder.splice(index, 1);
           newOrder.splice(index - 1, 0, item);
           setUserTaskOrder(newOrder);
@@ -340,7 +328,7 @@ export default function App() {
         const index = userReminderOrder.indexOf(item as Reminder);
         // If the item is not the first item, move it up in the array
         if (userReminderOrder && index > 0) {
-          let newOrder = [...userReminderOrder];
+          const newOrder = [...userReminderOrder];
           newOrder.splice(index, 1);
           newOrder.splice(index - 1, 0, item as Reminder);
           setUserReminderOrder(newOrder);
@@ -361,12 +349,12 @@ export default function App() {
       }
     }
   };
-  const moveDown = (item: any, state: string) => {
+  const moveDown = (item: Reminder | Task, state: string) => {
     if (userTaskOrder && state === "Tasks") {
       const index = userTaskOrder?.indexOf(item);
       // If the item is not the first item, move it up in the array
       if (index < userTaskOrder.length - 1) {
-        let newOrder = [...userTaskOrder];
+        const newOrder = [...userTaskOrder];
         newOrder.splice(index, 1);
         newOrder.splice(index + 1, 0, item);
         setUserTaskOrder(newOrder);
@@ -385,13 +373,13 @@ export default function App() {
         // });
       }
     } else if (userReminderOrder && state === "Reminders") {
-      const index = userReminderOrder.indexOf(item);
+      const index = userReminderOrder.indexOf(item as Reminder);
       // If the item is not the last item, move it down in the array
       if (index < userReminderOrder.length - 1) {
         // eslint-disable-next-line
-        let newOrder = [...userReminderOrder];
+        const newOrder = [...userReminderOrder];
         newOrder.splice(index, 1);
-        newOrder.splice(index + 1, 0, item);
+        newOrder.splice(index + 1, 0, item as Reminder);
         setUserReminderOrder(newOrder);
         const stringed = newOrder.join("").replace(/\s/g, "");
         // axios({
@@ -528,7 +516,6 @@ export default function App() {
           activeTask={activeTask}
           toggle={toggle}
           userList={userTaskOrder}
-          thisUserID={userID}
         />
       ) : null;
     } else {
@@ -572,6 +559,7 @@ export default function App() {
         <UserSettings
           toggle={toggleUserSettingsModal}
           currentUser={currentUser}
+          currentMode={currentMode}
         />
       );
     } else if (loginModal) {
@@ -639,7 +627,7 @@ export default function App() {
             <main className="container">
               <h1
                 className={`${
-                  currentMode === "Tasks" ? null : "reminder"
+                  currentMode === "Tasks" ? "" : "reminder"
                 } py-4 text-center text-3xl`}
                 id="title"
                 style={{

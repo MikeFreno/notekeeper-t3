@@ -16,9 +16,8 @@ import { Task } from "@prisma/client";
 
 export default function TaskModal(props: {
   activeTask: Task;
-  userList: any;
-  toggle: any;
-  thisUserID: any;
+  userList: Task[] | null;
+  toggle: () => void;
 }) {
   const [activeTask, setActiveTask] = useState<Task>(props.activeTask);
   const [taskSpinner, setTaskSpinner] = useState(false);
@@ -29,7 +28,7 @@ export default function TaskModal(props: {
 
   const taskSubmitRequest = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    let item = activeTask;
+    const item = activeTask;
     spinnerSetter();
     if (item.id) {
       if (item.completed === true) {
@@ -37,7 +36,6 @@ export default function TaskModal(props: {
     } else {
     }
   };
-  const userTaskOrderSetter = () => {};
 
   const spinnerSetter = () => {
     setTaskSpinner(!taskSpinner);

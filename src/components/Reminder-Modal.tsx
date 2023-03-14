@@ -21,8 +21,8 @@ import { Reminder } from "@prisma/client";
 
 export default function CustomModal(props: {
   activeReminder: Reminder;
-  toggle: any;
-  userList: any;
+  toggle: () => void;
+  userList: Reminder[] | null;
   time: Date;
 }) {
   const [reminderSpinner, setReminderSpinner] = useState(false);
@@ -34,7 +34,8 @@ export default function CustomModal(props: {
 
   const disablePastDate = (current: any) => {
     const yesterday = moment().subtract(1, "day");
-    return current.isAfter(yesterday);
+    //eslint-disable-next-line
+    return current.isAfter(yesterday) as boolean;
   };
 
   const inputPlaceholderSetter = () => {
@@ -45,9 +46,9 @@ export default function CustomModal(props: {
   };
   const reminderSubmitRequest = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    let item = props.activeReminder;
+    const item = props.activeReminder;
     spinnerSetter();
-    const datetime = datetimeModuleRef.current?.value.split(" ");
+    // const datetime = datetimeModuleRef.current?.value.split(" ");
     // item.time = datetime[0];
     // item.time = datetime[1] + " " + datetime[2];
     if (item.id) {

@@ -15,9 +15,9 @@ import {
 
 export default function AccountModal(props: {
   loginStatusFlash: string;
-  registrationToggle: any;
-  resetPasswordToggle: any;
-  toggle: any;
+  registrationToggle: () => void;
+  resetPasswordToggle: () => void;
+  toggle: () => void;
 }) {
   const [spinnerState, setSpinnerState] = useState<boolean>(false);
   const [requestError, setRequestError] = useState<string>("");
@@ -58,7 +58,7 @@ export default function AccountModal(props: {
             style={{ fontSize: "14px", color: "#3F4E4F" }}
           >
             Otherwise take a look!
-            <br /> However, you won't be able to save Tasks/Reminders
+            <br /> However, you won&apos;t be able to save Tasks/Reminders
           </div>
         </div>
       );
@@ -157,7 +157,7 @@ export default function AccountModal(props: {
           </button>
         </div>
         <div className="signup-suggest">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <button
             className="createAccoutButton"
             onClick={props.registrationToggle}

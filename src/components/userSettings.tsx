@@ -18,9 +18,10 @@ import Timezone from "./timezone";
 import { signOut } from "next-auth/react";
 import { Reminder, Task, User } from "@prisma/client";
 
-export default function userSettings(props: {
+export default function UserSettings(props: {
   currentUser: (User & { Tasks: Task[]; Reminders: Reminder[] }) | undefined;
   toggle: () => void;
+  currentMode: string;
 }) {
   const [tabDisplaySetting, setTabDisplaySetting] = useState<string>("app");
   const [passwordPassed, setPasswordPassed] = useState<string>("");
@@ -57,7 +58,7 @@ export default function userSettings(props: {
   const passwordConfFieldRef = useRef<HTMLInputElement>(null);
   const emailFieldRef = useRef<HTMLInputElement>(null);
 
-  const { currentUser, toggle } = props;
+  const { currentUser, toggle, currentMode } = props;
 
   const triggerFooterVisibility = () => {
     $("#footer").removeClass("user-hidder");
@@ -65,14 +66,11 @@ export default function userSettings(props: {
   };
 
   // ---------Logout functions--------- //
-  const logoutRequest = (event: { preventDefault: () => void }) => {};
-  const logoutSpinnerToggle = () => {
-    setLogoutSpinner(!logoutSpinner);
-  };
   const logoutButtonStateRender = () => {
     if (logoutButtonState === false) {
       return (
-        <button className="edit-button" type="submit">
+        //eslint-disable-next-line
+        <button className="edit-button" onClick={() => signOut()}>
           Logout
         </button>
       );
@@ -195,8 +193,6 @@ export default function userSettings(props: {
     }
   };
 
-  const desktopNotificationStateManager = () => {};
-
   // ---------Password Change functions--------- //
   const passwordChangeRequest = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -204,8 +200,8 @@ export default function userSettings(props: {
     const newUserPasswordConf = $("#passwordConfField").val();
   };
   const checkPasswordInput = () => {
-    let currentInput = passwordFieldRef.current?.value;
-    let passwordConf = passwordConfFieldRef.current?.value;
+    const currentInput = passwordFieldRef.current?.value;
+    const passwordConf = passwordConfFieldRef.current?.value;
     if (currentInput!.length < 8) {
       setPasswordPassed("");
       setPasswordError("Password too short");
@@ -234,8 +230,8 @@ export default function userSettings(props: {
   };
   const checkPasswordConfInput = () => {
     checkPasswordInput();
-    let currentInput = passwordFieldRef.current?.value;
-    let passwordToMatch = passwordConfFieldRef.current?.value;
+    const currentInput = passwordFieldRef.current?.value;
+    const passwordToMatch = passwordConfFieldRef.current?.value;
     if (currentInput!.length < passwordToMatch!.length) {
       setPasswordConfPassed("");
       setPasswordConfError("Passwords must match");
@@ -441,8 +437,8 @@ export default function userSettings(props: {
         return (
           <div className="text-center" style={{ color: "#3f4e4f" }}>
             <br />
-            Thanks for purchasing lifetime premium! You'll be able to enjoy new
-            features as they come indefinitly!
+            Thanks for purchasing lifetime premium! You&apos;ll be able to enjoy
+            new features as they come indefinitely!
           </div>
         );
       }
@@ -675,7 +671,7 @@ export default function userSettings(props: {
       >
         Settings
       </ModalHeader>
-      <Form onSubmit={() => signOut()}>
+      <Form>
         <div
           style={{
             float: "right",
@@ -704,7 +700,7 @@ export default function userSettings(props: {
       <ModalFooter
         style={{ backgroundColor: "#DCD7C9", borderColor: "#DCD7C9" }}
       ></ModalFooter>
-      <Footer isVisible={true} />
+      <Footer isVisible={true} currentMode={currentMode} />
     </Modal>
   );
 }
